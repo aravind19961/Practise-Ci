@@ -10,17 +10,20 @@ jobs:
     docker:
       -alpine:latest
     steps:
-      -run: echo("hello world")
+      -run: hello world
   print_world:
     docker:
       -alpine:latest
     steps:
-      -run: echo("world")
+      -run: echo world
 
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
+      - welcome/run
       - print_hello
-      - print_world requries print_hello
+      - print_world:
+          requires:
+            -print_hello
