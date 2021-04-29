@@ -8,12 +8,12 @@ orbs:
 jobs:
   print_hello:
     docker:
-      -alpine:latest
+      -image: alpine:latest
     steps:
       -run: hello world
   print_world:
     docker:
-      -alpine:latest
+      -image :alpine:latest
     steps:
       -run: echo world
 
