@@ -10,12 +10,12 @@ jobs:
     docker:
       -alpine:latest
     steps:
-      -run: hello world
+      - image : hello world
   print_world:
     docker:
-      -alpine:latest
+      - image: alpine:latest
     steps:
-      -run: echo world
+      - run: echo world
 
 workflows:
   # Name the workflow "welcome"
@@ -26,4 +26,4 @@ workflows:
       - print_hello
       - print_world:
           requires:
-            -print_hello
+            - print_hello
