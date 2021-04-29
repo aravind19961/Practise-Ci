@@ -10,7 +10,7 @@ jobs:
     docker:
       - image: alpine:latest
     steps:
-      - run: hello world
+      - run: echo hello world
   print_world:
     docker:
       - image: alpine:latest
