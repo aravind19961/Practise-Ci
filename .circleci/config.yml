@@ -22,7 +22,7 @@ jobs:
     steps:
       - run: echo "text to output" >output.txt
       - persist_to_workspace:
-            root: /
+            root: ~/
             paths:
               - output.txt
   print_output:
@@ -30,8 +30,8 @@ jobs:
       - image: alpine:latest
     steps:
       - attach_workspace:
-          at: ~/tmp/workspace/
-      - run: cat target/output.txt
+          at: ~/
+      - run: cat ~/output.txt
 
 workflows:
   # Name the workflow "welcome"
