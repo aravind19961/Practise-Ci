@@ -16,6 +16,22 @@ jobs:
       - image: alpine:latest
     steps:
       - run: echo world
+  save_hello_world_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run: echo "text to output" >output.txt
+      - persist_to_workspace:
+            root: /tmp/workspace
+            paths:
+              - target/output.txt
+  print_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - attach_workspace:
+          - at: /tmp/workspace/target
+      - run: cat output.txt
 
 workflows:
   # Name the workflow "welcome"
@@ -27,3 +43,7 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - save_hello_world_output
+      - print_output:
+          requires:
+            - save_hello_world_output
