@@ -30,7 +30,7 @@ jobs:
       - image: alpine:latest
     steps:
       - attach_workspace:
-          - at: ~/tmp/workspace/
+          at: ~/tmp/workspace/
       - run: cat target/output.txt
 
 workflows:
