@@ -22,9 +22,9 @@ jobs:
     steps:
       - run: echo "text to output" >output.txt
       - persist_to_workspace:
-            root: /tmp/workspace
+            root: /
             paths:
-              - target/output.txt
+              - output.txt
   print_output:
     docker:
       - image: alpine:latest
