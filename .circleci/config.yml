@@ -20,7 +20,7 @@ jobs:
     docker:
       - image: alpine:latest
     steps:
-      - run: echo "text to output" >output.txt
+      - run: echo "text to output" > ~/output.txt
       - persist_to_workspace:
             root: ~/
             paths:
